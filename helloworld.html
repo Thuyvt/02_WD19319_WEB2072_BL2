@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Hiển thị biến -->
+         {{ message }}
+    </div>
+    <div>
+        {{message}}
+    </div>
+</body>
+<script>
+    // createApp: Khai báo ứng dụng
+    // ref: khai báo biến
+    const { createApp, ref} = Vue;
+    
+    // Khai báo ứng dụng
+    createApp({
+        // Cấu hình nội dung ứng dụng
+        setup() {
+            // Khai báo biến hiển thị nội dung trên giao diện
+            const message = ref("Hello Vuejs");
+            // trả giá trị biến ra ngoài màn hình
+            return {
+                message
+            };
+        }
+        // dùng mount hiển thị giá trị biến trong return ra ngoài màn hình
+    }).mount("#app");
+</script>
+</html>
