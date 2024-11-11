@@ -1,7 +1,7 @@
 <script setup>
 	  import { ref, reactive} from 'vue';
 
-	  const age = ref(15);
+	const age = ref(15);
     const score = ref(8);
 
     // Khai báo biến để theo dõi trạng thái điểm danh
@@ -33,6 +33,15 @@
         return list_foods.reduce((total, item) => {
             return total + item.price * item.quantity;
         }, 0).toFixed(2);
+    }
+
+    // Xóa sản phẩm ra khỏi giỏ hàng
+    const deleteItem = (id) => {
+        console.log(id);
+        // tìm index của đối tượng bầng index
+        const index = list_foods.findIndex(item => item.id == id);
+        // xóa đối tượng khỏi danh sách bằng index
+        list_foods.splice(index, 1);
     }
 
 </script>
@@ -112,7 +121,7 @@
                         </td>
                         <td>{{ (food.price * food.quantity).toFixed(2) }}</td>
                         <td>
-                            <button class="btn btn-danger">Xóa</button>
+                            <button class="btn btn-danger" @click="deleteItem(food.id)">Xóa</button>
                         </td>
                     </tr>
                     <tr>
