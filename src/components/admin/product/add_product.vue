@@ -8,22 +8,57 @@
         price: 0,
         status: ""
     })
+    // Biến chứa thông báo lỗi
+    const errors= reactive({});
+    // Biến danh sách sản phẩm
+    const list_products = reactive([]);
+
+    function validateForm() {
+        // Đánh dấu trạng thái form
+        let result = true;
+        // check ô nhập tên
+        if (!product.name || product.name.trim == "") {
+            errors.name = "Tên bắt buộc nhập"
+            return false;
+        } else {
+            result = true;
+            errors.name = "";
+        }
+        // check ô nhập giá
+        if (!product.price || product.price < 0) {
+            errors.price = "Giá là bắt buộc và phải lớn hơn 0";
+            return false;
+        } else {
+            errors.price = "";
+            result = true;
+        }
+        return result;
+    }
 
     function submitForm() {
         console.log('Gọi hàm submit');
-        console.log(product);
-        // tạo 1 danh sách đối tượng sản phẩm
-        // nhấn tạo mới thông tin đối tượng được thêm vào danh sách sản phẩm
+        // gọi hàm validate kiểm tra dữ liệu form
+        console.log(validateForm());
+        if (validateForm()) {
+            // tạo 1 danh sách đối tượng sản phẩm
+            // nhấn tạo mới thông tin đối tượng được thêm vào danh sách sản phẩm
+            list_products.push(product);
+            // console.log(list_products);
+        }
     }
+
 </script>
 
 <template>
+
+    <hr>
     <h2>Tạo mới sản phẩm</h2>
     <form @submit.prevent="submitForm">
         <!-- Khung nhập tên sản phẩm -->
         <div class="mb-3">
             <span class="form-label">Tên sản phẩm:</span>
             <input type="text" class="form-control" placeholder="Nhập tên" v-model.trim="product.name">
+            <span v-if="errors.name" class="text-danger">{{ errors.name }}</span>
         </div>
         <!-- Khung nhập mô tả sản phẩm -->
         <div class="mb-3">
@@ -43,6 +78,7 @@
         <div class="mb-3">
             <span class="form-label">Giá sản phẩm:</span>
             <input type="number" v-model.number="product.price" class="form-control" placeholder="Nhập giá">
+            <span v-if="errors.price" class="text-danger">{{ errors.price }}</span>
         </div>
         <!-- Khung nhập Trạng thái sản phẩm -->
         <div class="mb-3">
