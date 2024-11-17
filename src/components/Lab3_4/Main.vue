@@ -6,23 +6,23 @@
 			id: "PH0001",
 			name: "Nguyễn Văn A",
 			yOb: 2004,
-			mayjor: "Phát triển phần mềm"
+			mayjor: "Phát Triển Phần Mềm"
 		},
 		{
 			id: "PH0002",
 			name: "Nguyễn Thị B",
 			yOb: 2005,
-			mayjor: "Ứng dụng phần mềm"
+			mayjor: "Ứng Dụng Phần Mềm"
 		},
 
 		{
 			id: "PH0003",
 			name: "Nguyễn Văn C",
 			yOb: 2005,
-			mayjor: "Ứng dụng phần mềm"
+			mayjor: "Ứng Dụng Phần Mềm"
 		},
 	]);
-    let student  = reactive({
+    let student  = ref({
 		id: "",
 		name: "",
 		yOb: 0,
@@ -44,22 +44,17 @@
         if (validate) {
             console.log(student);
             list_student.push({
-                id: student.id,
-                name: student.name,
-                yOb: student.yOb,
-                mayjor: student.mayjor
+                id: student.value.id,
+                name: student.value.name,
+                yOb: student.value.yOb,
+                mayjor: student.value.mayjor
             });
         }
     }
     // Chọn đối tượng để sửa
     const onClickSelect = (index) => {
         console.log(list_student[index].id);
-        student = reactive({
-                id: list_student[index].id,
-                name: list_student[index].name,
-                yOb: list_student[index].yOb,
-                mayjor: list_student[index].mayjor
-        });
+        student.value = list_student[index];
     }
 
 </script>
@@ -113,8 +108,8 @@
             <span class="form-label">Chuyên ngành:</span>
             <select class="form-control" v-model="student.mayjor">
                 <option value="">- Lựa chọn -</option>
-                <option value="Phát Triển Phầm Mềm">Phát Triển Phầm Mềm</option>
-                <option value="Ứng Dụng Phầm Mềm">Ứng Dụng Phầm Mềm</option>
+                <option value="Phát Triển Phần Mềm">Phát Triển Phầm Mềm</option>
+                <option value="Ứng Dụng Phần Mềm">Ứng Dụng Phầm Mềm</option>
                 <option value="Lập Trình WEB">Lập Trình WEB</option>
             </select>
         </div>
