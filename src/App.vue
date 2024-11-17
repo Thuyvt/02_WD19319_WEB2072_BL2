@@ -1,49 +1,12 @@
-<!-- Khai báo các component trong trang, nhúng thư viện cần dùng -->
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+	import Header from "./components/Lab3_4/Header.vue";
+	import Footer from "./components/Lab3_4/Footer.vue";
+	import Main from "./components/Lab3_4/Main.vue";
 </script>
-
-<!-- Xây dựng nội dung hiển thị của trang -->
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+	<Header></Header>
+    <div class="container mt-4 mb-4">
+	    <Main></Main>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+	<Footer></Footer>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
