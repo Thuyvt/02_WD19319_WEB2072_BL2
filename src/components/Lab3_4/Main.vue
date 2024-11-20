@@ -22,7 +22,7 @@
 			mayjor: "Ứng Dụng Phần Mềm"
 		},
 	]);
-    let student  = reactive({
+    let student  = ref({
 		id: "",
 		name: "",
 		yOb: 0,
@@ -58,21 +58,25 @@
         console.log(list_student[index].id);
         indexSelected = index;
         // dùng ref để thay thế giá trị toàn bộ đối tượng
-        // student.value = {
-        //     id: list_student[index].id,
-        //     name: list_student[index].name,
-        //     yOb: list_student[index].yOb,
-        //     mayjor: list_student[index].mayjor
-        // };
+        student.value = {
+            id: list_student[index].id,
+            name: list_student[index].name,
+            yOb: list_student[index].yOb,
+            mayjor: list_student[index].mayjor
+        };
         // dùng reactive
-        student.id = list_student[index].id;
-        student.name = list_student[index].name;
-        student.yOb = list_student[index].yOb;
-        student.mayjor = list_student[index].mayjor;
+        // student.id = list_student[index].id;
+        // student.name = list_student[index].name;
+        // student.yOb = list_student[index].yOb;
+        // student.mayjor = list_student[index].mayjor;
     }
 
     // Cập nhật đối tượng vừa chọn
-    // const
+    const onClickUpdate = () => {
+        if (indexSelected >= 0) {
+            console.log(indexSelected)
+        }
+    }
 
 
 </script>
