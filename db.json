@@ -1,0 +1,40 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "name": "Sách A",
+      "author": "Tác giả A",
+      "price": 200000,
+      "quantity": 10
+    },
+    {
+      "id": "2",
+      "name": "Sách B",
+      "author": "Vũ Trọng Phụng",
+      "price": 150000,
+      "quantity": 10
+    },
+    {
+      "id": "3",
+      "name": "Sách C",
+      "author": "Tác giả C",
+      "price": 300000,
+      "quantity": 2
+    },
+    {
+      "id": 4,
+      "name": "sách a",
+      "author": "Vũ Trọng Phụng",
+      "price": 12,
+      "quantity": 12
+    },
+    {
+      "id": "5",
+      "name": "ádasd",
+      "author": "Vũ Trọng Phụng",
+      "price": 12312,
+      "quantity": 12312
+    }
+  ],
+  "authors": []
+}
