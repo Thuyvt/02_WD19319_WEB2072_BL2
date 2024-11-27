@@ -22,7 +22,7 @@
       "quantity": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "sách a",
       "author": "Vũ Trọng Phụng",
       "price": 12,
@@ -34,6 +34,13 @@
       "author": "Vũ Trọng Phụng",
       "price": 12312,
       "quantity": 12312
+    },
+    {
+      "id": "1231",
+      "name": "123",
+      "author": "Nguyễn Nhật Ánh",
+      "price": 12,
+      "quantity": 123
     }
   ],
   "authors": []
