@@ -24,7 +24,7 @@
       bookSelected.value = book;
     }
     // hàm đóng modal
-    const handleCloseModel = () => {
+    const handleCloseModal = () => {
       isShowModal.value = false;
     }
     // Gọi hàm lấy danh sách
@@ -72,7 +72,9 @@
      : truyền giá trị từ cha vào con -->
     <ConfirmDelete v-if="isShowModal"
     :isShowModal="isShowModal"
-    :handleCloseModel="handleCloseModel"
-    :bookSelected="bookSelected">
+    :handleCloseModal="handleCloseModal"
+    :bookSelected="bookSelected"
+    @handleCloseModal="handleCloseModal"
+    @getNewList="getListBooks">
     </ConfirmDelete>
 </template>
